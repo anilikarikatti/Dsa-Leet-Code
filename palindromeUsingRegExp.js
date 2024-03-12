@@ -17,13 +17,14 @@ let reverseString = (str) => {
 let restructureString = (str) => {
   str = str.toLowerCase();
   let newString = "";
-  let regExp = /[a-z]/;
+  let regExp = /[a-z0-9]/;
   for (let elem of str) {
     let res = regExp.test(elem);
     if (res) newString += elem;
   }
   return newString;
 };
-let str = "A man , a plan , a canal , : Panama";
+// let str = "A man , a plan , a canal , : Panama";
+let str = "0p"
 
 console.log(palindromeForAlphanumeric(str));

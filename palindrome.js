@@ -19,12 +19,13 @@ let restructureString = (str) => {
   str = str.toLowerCase();
   let newString = "";
   for (let elem of str) {
-    if (elem.charCodeAt() >= 97 && elem.charCodeAt() <= 122) {
+    if ((elem.charCodeAt() >= 97 && elem.charCodeAt() <= 122 ) || (elem.charCodeAt() >= 48 && elem.charCodeAt() <= 57 )) {
       newString += elem;
     }
   }
   return newString;
 };
-let str = "A man , a plan , a canal , : dPanama";
+// let str = "A man , a plan , a canal , : dPanama";
+let str = "0p"
 
 console.log(palindromeForAlphanumeric(str));

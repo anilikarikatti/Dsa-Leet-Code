@@ -1,3 +1,5 @@
+// submitted
+
 function duplicate(arr) {
   let obj = {};
 
