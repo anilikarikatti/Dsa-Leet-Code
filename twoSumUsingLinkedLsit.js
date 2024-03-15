@@ -1,4 +1,9 @@
-
+class LinkedList{
+    constructor(val){
+        this.node = val;
+        this.next = null;
+    }
+}
 let a1 = [2,4,3] ;
 let a2 = [5,6,4]
 
@@ -24,12 +29,14 @@ function addTwoNumbers(a1,a2){
 
     res =  res.split('').reverse();
 
-    let list =new  LinkedList()
+    let list =null
 
-    for(let i = 1; i < res.length ; i++){
-       let val = new LinkedList(res[i])
+    for(let i = 0; i < res.length ; i++){
+       list = arrayToList(list,Number(res[i]))
 
     }
+
+    return list
     
     
 }
@@ -43,14 +50,19 @@ let reStructure = (arr,times)=>{
     return arr
 }
 
+function arrayToList(list,data){
+
+    if(list == null){
+        return new LinkedList(data);
+    }
+    else{
+        list.next = arrayToList(list.next,data)
+    }
+    return list
+}
+
 
 console.log(
     addTwoNumbers(a1,a2)
 );
 
-class LinkedList{
-    constructor(val){
-        this.node = val;
-        this.next = null;
-    }
-}

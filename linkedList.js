@@ -5,39 +5,40 @@ class LinkedList{
     }
 }
 
-// let list = new LinkedList(100);
-// list.next =new LinkedList(200);
-// list.next.next = new LinkedList(300)
-// console.log(list);
+let arr = [100,200,300]
 
-let arr = [1,2,3];
+const arrAyToList = (list,value)=>{
+    if(list == null){
+        return new LinkedList(value)
+    }else{
+        list.next = arrAyToList(list.next,value)
+    }
+    return list
+}
+let list =null;
 
-let list = new LinkedList(100)
-
-list.next = new LinkedList(200)
-
-// console.log(list,"list");
-
-function arrToList(arr){
-
-   let root = null;
-
-   for(let i= 0 ; i < arr.length ; i++){
-
-   }
-
+for (let index = 0; index < arr.length; index++) {
+  list =   arrAyToList(list,arr[index]);
     
 }
 
-function addValues(list,val){
-    let ptr = list
-    while(ptr != null){
-        if(list.next == null){
-            list.next = new LinkedList(val)
-        }
-        else{
+console.log(list);
 
-        }
 
+// traverse
+let arrTo = []
+function traverseLinkedList(list){
+    if(list.next == null){
+        console.log(list.node);
+        arrTo.push(list.node)
+        return arrTo
     }
+    arrTo.push(list.node)
+
+    console.log(list.node);
+    return traverseLinkedList(list.next);
 }
+
+console.log(
+    traverseLinkedList(list)
+);
