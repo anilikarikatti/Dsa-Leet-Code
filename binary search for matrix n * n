@@ -1,0 +1,56 @@
+var searchMatrix = function(matrix, target) {
+
+    const row = BinarySearchMatrix(matrix,target);
+
+    console.log(row,"row")
+
+    const response = binarySearch(row[0] , target);
+
+    return response
+
+
+    
+};
+
+const binarySearch = (rows,target)=>{
+    console.log(rows)
+    if(rows.length <= 1){
+        if(rows[0] == target){
+            return true
+        }
+        return false
+    }
+    const midIndex = Math.floor(rows.length /2);
+
+    console.log(midIndex)
+
+    if(rows[midIndex] == target ){
+        return true 
+    }else if(rows[midIndex] > target){
+        return binarySearch(rows.slice(0,midIndex),target)
+    }else{
+        return binarySearch(rows.slice(midIndex),target)
+
+    }
+}
+
+const BinarySearchMatrix = (matrix , target)=>{
+    if(matrix.length == 1){
+        return matrix;
+    }
+    const midMatrix = Math.floor(matrix.length / 2);
+
+    console.log(midMatrix )
+
+
+    const rowValues = matrix[midMatrix - 1]
+    console.log(rowValues)
+    const lastValue = rowValues[rowValues.length - 1] ; 
+
+    if(lastValue >= target){
+        return BinarySearchMatrix(matrix.slice(0,midMatrix),target)
+    }else{
+        return BinarySearchMatrix(matrix.slice(midMatrix),target)
+
+    }
+}
